@@ -1,0 +1,51 @@
+{
+  "id": "1625625",
+  "name": "tarbar",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8746286",
+      "name": "返 回",
+      "font_class": "fanhui",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "3706663",
+      "name": "回到顶部",
+      "font_class": "huidaodingbu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "478787",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "599957",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "689242",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e7e6",
+      "unicode_decimal": 59366
+    },
+    {
+      "icon_id": "4954950",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    }
+  ]
+}
