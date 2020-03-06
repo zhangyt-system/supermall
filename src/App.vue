@@ -1,36 +1,19 @@
 
 <template>
   <div id="app">
-    <div>
-      <TarBar>
-        <TarBarItem></TarBarItem>
-      </TarBar>
-      <TarBar>
-        <TarBarItem></TarBarItem>
-      </TarBar>
-      <TarBar>
-        <TarBarItem></TarBarItem>
-      </TarBar>
-      <TarBar>
-        <TarBarItem></TarBarItem>
-      </TarBar>
-    </div>
-    <router-view />
+    <MainTarBar></MainTarBar>
   </div>
 </template>
 
 <script>
-import TarBar from "./components/tarbar/TarBar";
-import TarBarItem from "./components/tarbar/TarBarItem";
+import MainTarBar from "./components/tarbar/MainTarBar";
 export default {
   name: "App",
   components: {
-    TarBar,
-    TarBarItem
+    MainTarBar,
   }
 };
 </script>
 
 <style scoped>
-
 </style>
