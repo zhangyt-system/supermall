@@ -20,7 +20,7 @@ export default {
         SwiperItem
     },
     mounted(){
-        console.log(this.bannerArray)
+        // console.log(this.bannerArray)
     }
 }
 </script>

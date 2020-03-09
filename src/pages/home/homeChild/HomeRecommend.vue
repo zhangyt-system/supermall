@@ -21,5 +21,7 @@ export default {
 <style scoped>
 img{
     width:100%;
+    top:44px;
+    /* position: relative; */
 }
 </style>

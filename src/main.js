@@ -7,6 +7,14 @@ import '../static/icon/iconfont.css'
 import './assets/basestyled.css'
 Vue.config.productionTip = false
 Vue.prototype.$bus=new Vue()
+var EventBus = new Vue();
+Object.defineProperties(Vue.prototype,{
+  $bus:{
+    get:function(){
+      return EventBus
+    }
+  }
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

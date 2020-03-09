@@ -14,12 +14,16 @@ export default {};
 .navbar{
     display: flex;
     width: 100%;
-    /* position: relative; */
+    position: relative;
     height: 44px;
     background-color: #ff8198;
     text-align: center;
     line-height: 44px;
     color: #ccc;
+    position: sticky;
+    /* position: fixed; */
+    top:0;
+    z-index: 8;
 }
 .left{
     width: 60px;

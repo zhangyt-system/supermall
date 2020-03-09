@@ -1,6 +1,7 @@
 <template>
   <div class="tab">
-    <div v-for="(item,index) in tabArr" :key="index" class="tabItem" @click="tabItemClick(index)" 
+    <div v-for="(item,index) in tabArr" :key="index" class="tabItem" 
+    @click="tabItemClick(index)" 
     :class="{active:currIndex==index}"
     >
       <div>{{item}}</div>
@@ -27,6 +28,7 @@ export default {
   methods: {
     tabItemClick(index) {
       this.currIndex = index;
+      this.$emit('tabClick',index)
     }
   }
 };
