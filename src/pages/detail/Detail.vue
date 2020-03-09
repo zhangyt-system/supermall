@@ -8,25 +8,28 @@
           >{{item}}</span>
       </NavBar>
         <DetailSwiper :topImages='topImages'></DetailSwiper>
-      <div>{{iid}}</div>
+        <DetailDesc :itemDesc='itemDesc'></DetailDesc>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/navbar/NavBar";
 import {getGoodsItemData} from '../../network/detail';
-import DetailSwiper from './detailChild/DetailSwiper'
+import DetailSwiper from './detailChild/DetailSwiper';
+import DetailDesc from './detailChild/DetailDesc'
 export default {
     data(){
         return{
             navArr:['商品','参数','评论','推荐'],
             iid:'',
-            topImages:[]
+            topImages:[],
+            itemDesc:{}
         }
     },
   components: {
     NavBar,
-    DetailSwiper
+    DetailSwiper,
+    DetailDesc
   },
   created(){
       this.iid=this.$route.params.iid
@@ -38,9 +41,9 @@ export default {
   methods:{
       getGoodsItemData(iid){
           getGoodsItemData(iid).then((res)=>{
-              console.log(res.data.result.itemInfo.topImages)
-              this.topImages=res.data.result.itemInfo.topImages
-              console.log(this.topImages)
+              console.log(res)
+              this.topImages=res.data.result.itemInfo.topImages,
+              this.itemDesc=res.data.result
           })
       },
       backClick(){
