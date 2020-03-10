@@ -1,9 +1,11 @@
 <template>
   <div>
-    <NavBar>
+    <NavBar class="nav">
       <span slot="center">购物街</span>
     </NavBar>
-    <Scroll ref="scroll" @scroll="scroll" class="content" @pullingUp="pullingUp">
+    <Scroll ref="scroll" @scroll="scroll" class="content" @pullingUp="pullingUp"
+    :pullUpLoad="true"
+    >
       <HomeSwiper :bannerArray="banner"></HomeSwiper>
       <HomeRecommend></HomeRecommend>
       <TabController :tabArr="tabArr" @tabClick="tabClick"></TabController>
@@ -111,7 +113,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .content {
   position: absolute;
   top: 44px;
@@ -119,7 +121,11 @@ export default {
   left: 0;
   right: 0;
 }
+.nav{
+    background-color: #ff8198;
+    color: #ccc;
+}
 
-/* #ff8198 */
-/* #ff5777 */
+/* #ff8198 qian*/
+/* #ff5777 shen*/
 </style>

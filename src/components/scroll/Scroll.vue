@@ -14,18 +14,21 @@ export default {
       scroll: null
     };
   },
+  props: {
+    pullUpLoad: Boolean
+  },
   mounted() {
     this.scroll = new BScroll(this.$refs.wrapper, {
       probeType: 3,
       click: true,
-      pullUpLoad: true
+      pullUpLoad: this.pullUpLoad
     });
     this.scroll.on("scroll", position => {
       //   console.log(position)
       this.$emit("scroll", position);
     });
     this.scroll.on("pullingUp", () => {
-    //   console.log("下拉加载更多");
+      //   console.log("下拉加载更多");
       this.$emit("pullingUp");
     });
   }

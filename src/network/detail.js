@@ -7,3 +7,8 @@ export function getGoodsItemData(iid){
         }
     })
 }
+export function getRecommendData(){
+    return request({
+        url:'/recommend'
+    })
+}
