@@ -1,13 +1,13 @@
 import request from './request'
-export function getHomeMuliteData(){
+export function getHomeMuliteData() {
     return request({
-        url:'/home/multidata'
+        url: '/home/multidata'
     })
 }
-export function getGoodsListData(type,page){
+export function getGoodsListData(type, page) {
     return request({
-        url:"/home/data",
-        params:{
+        url: "/home/data",
+        params: {
             page,
             type
         }

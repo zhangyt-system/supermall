@@ -6,6 +6,83 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1435194",
+      "name": "店铺",
+      "font_class": "dianpu",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "4171090",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5643530",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "7388051",
+      "name": "爱心",
+      "font_class": "aixin",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "7440455",
+      "name": "收藏",
+      "font_class": "shoucang",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "9512597",
+      "name": "消息",
+      "font_class": "message",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "10047319",
+      "name": "全选 - 选中",
+      "font_class": "ziyuan",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "10047338",
+      "name": "全选 - 未选中",
+      "font_class": "ziyuan1",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "10583159",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "11391536",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "13332684",
+      "name": "商城",
+      "font_class": "shangcheng",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
       "icon_id": "8746286",
       "name": "返 回",
       "font_class": "fanhui",

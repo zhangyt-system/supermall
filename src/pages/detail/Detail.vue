@@ -11,12 +11,12 @@
       <DetailRecommend :detailRecommend="detailRecommend" ref="recommend"></DetailRecommend>
     </Scroll>
     <BackTop @click.native="backTopClick" v-show="backTop" :pullUpLoad="false"></BackTop>
-    <DetailBottom/>
+    <DetailBottom @toCartClick="toCartClick"></DetailBottom>
   </div>
 </template>
 
 <script>
-import { getGoodsItemData, getRecommendData } from "../../network/detail";
+import { getGoodsItemData, getRecommendData ,Shop} from "../../network/detail";
 import DetailNav from "./detailChild/DetailNav";
 import DetailSwiper from "./detailChild/DetailSwiper";
 import DetailDesc from "./detailChild/DetailDesc";
@@ -39,7 +39,8 @@ export default {
       detailParams: {},
       detailRate: {},
       detailRecommend: [],
-      position:0
+      position:0,
+      shop:{},
     };
   },
   components: {
@@ -57,7 +58,7 @@ export default {
   },
   created() {
     this.iid = this.$route.params.iid;
-    console.log(this.iid);
+    // console.log(this.iid);
   },
   mounted() {
     this.getGoodsItemData(this.iid);
@@ -72,17 +73,19 @@ export default {
     getGoodsItemData(iid) {
       getGoodsItemData(iid).then(res => {
         //   console.log(res)
-        (this.topImages = res.data.result.itemInfo.topImages),
-          (this.itemDesc = res.data.result);
+        this.topImages = res.data.result.itemInfo.topImages,
+        this.itemDesc = res.data.result;
         this.shopInfo = res.data.result.shopInfo;
         this.detailPic = res.data.result;
         this.detailParams = res.data.result.itemParams;
         this.detailRate = res.data.result.rate;
+        this.shop = new Shop(res.data) 
+        console.log(res.data)
       });
     },
     getRecommendData() {
       getRecommendData().then(res => {
-        console.log(res);
+        // console.log(res);
         this.detailRecommend = res.data.data.list;
       });
     },
@@ -91,6 +94,9 @@ export default {
     },
     scroll(pos){
         this.position=-pos.y
+    },
+    toCartClick(){
+      this.$store.commit('addCart',this.shop)
     }
   }
 };

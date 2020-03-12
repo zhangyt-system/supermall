@@ -6,7 +6,7 @@
       <div>店铺</div>
       <div>收藏</div>
       <div>
-        <span class="toCart">加入购物车</span>
+        <span class="toCart" @click="toCartClick">加入购物车</span>
         <span class="toBuy">立即购买</span>
       </div>
     </div>
@@ -14,7 +14,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    toCartClick(){
+      console.log('点击了toCartClick')
+      this.$emit('toCartClick')
+    }
+  }
+};
 </script>
 
 <style scoped>
