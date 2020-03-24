@@ -2,8 +2,11 @@
   <div>
     <!-- <h2>bottombar</h2> -->
     <div class="bottomBar">
+      <span class="iconfont">&#xe601;</span>
       <div>客服</div>
+      <span class="iconfont">&#xe624;</span>
       <div>店铺</div>
+      <span class="iconfont">&#xe6a7;</span>
       <div>收藏</div>
       <div>
         <span class="toCart" @click="toCartClick">加入购物车</span>
@@ -35,6 +38,7 @@ export default {
   background-color: #fff;
   width: 100%;
   line-height: 55px;
+  /* flex-wrap: nowrap */
   /* margin: 0; */
 }
 .toCart {

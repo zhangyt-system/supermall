@@ -1,49 +1,42 @@
 <template>
   <div>
-    <div v-for="(item,index) in infoData" :key="index" class="totalCart" @click="iconClick">
+    <div class="totalCart" >
       <!-- {{item.iid}}  -->
-      <span class="iconfont"  v-show="iconShow">&#xe60c;</span>
-      <span class="iconfont" v-show="!iconShow">&#xe60d;</span>
-      <img :src="item.imgUrl" />
+      <CartBtn :iconClick='iconClick'></CartBtn>
+      <img :src="this.infoDataItem.imgUrl" />
       <div class="cartRight">
-        <div class="title">{{item.title}}</div>
-        <div class="desc">商品描述:{{item.desc}}</div>
-        <span class="price">¥{{item.newPrice}}</span>
-        <span class="count">x{{item.count}}</span>
+        <div class="title">{{this.infoDataItem.title}}</div>
+        <div class="desc">商品描述:{{this.infoDataItem.desc}}</div>
+        <span class="price">¥{{infoDataItem.newPrice}}</span>
+        <span class="count">x{{infoDataItem.count}}</span>
+        <!-- {{infoDataItem}} -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CartBtn from './CartBtn'
 export default {
-  data() {
-    return {
-      iconShow:true
-    };
+  mounted(){
+    console.log(this.infoDataItem)
   },
-  props: {
-    infoData: Array
+  components:{
+    CartBtn
+  },
+  props:{
+    infoDataItem:Object
   },
   methods:{
     iconClick(){
-      if(this.iconShow===true){
-        this.iconShow=false
-      }else if(this.iconShow===false){
-        this.iconShow=true
-      }
+
     }
   }
 };
 </script>
 
 <style scoped>
-.iconfont{
-  line-height: 100px;
-  margin-right: 2px;
-  font-size: 18px;
-  color:#ff5777;
-}
+
 img {
   width: 80px;
   height: 100px;

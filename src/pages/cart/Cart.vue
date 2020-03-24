@@ -1,7 +1,8 @@
 <template>
   <div>
     <CartNav></CartNav>
-    <CartItem :infoData="infoData"></CartItem>
+    <CartListItem :infoData="infoData">
+    </CartListItem>
     <CartBottom></CartBottom>
   </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
 import CartNav from "./cartChild/CartNav";
 import CartBottom from "./cartChild/CartBottom";
+import CartListItem from "./cartChild/CartListItem";
 import CartItem from "./cartChild/CartItem";
 export default {
   data() {
@@ -23,7 +25,8 @@ export default {
   components: {
     CartNav,
     CartBottom,
-    CartItem
+    CartItem,
+    CartListItem
   }
 };
 </script>
