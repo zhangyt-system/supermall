@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="baseDesc">
+    <div class="baseDesc" v-if="Object.keys(shopInfo).length !== 0">
       <img class="img" :src="shopInfo.shopLogo" />
       <div class="name">{{shopInfo.name}}</div>
     </div>
@@ -32,10 +32,10 @@ export default {
   props: {
     shopInfo: Object
   },
-  computed:{
-      totalSell(){
-          return this.shopInfo.cSells.toString()
-      }
+  computed: {
+    totalSell() {
+      return this.shopInfo.cSells;
+    }
   }
 };
 </script>
@@ -67,48 +67,47 @@ export default {
 .shopInfoItem {
   flex: 1;
   text-align: left;
-  margin-left:23px;
-   
+  margin-left: 23px;
 }
-.shopInfoItemSell{
-    width:85px;
-    text-align: center;
-    line-height: 169%;
-    color:#333;
+.shopInfoItemSell {
+  width: 85px;
+  text-align: center;
+  line-height: 169%;
+  color: #333;
 }
-.shopInfoItemShop{
-    text-align: center;
-    line-height: 169%;
-    width:85px;
-    border-right:1px solid lightgray; 
-    color:#333;
+.shopInfoItemShop {
+  text-align: center;
+  line-height: 169%;
+  width: 85px;
+  border-right: 1px solid lightgray;
+  color: #333;
 }
-.itemScore{
-    margin-left:3px;
-    color:green;
-    font-size: 13px;
+.itemScore {
+  margin-left: 3px;
+  color: green;
+  font-size: 13px;
 }
-.active{
-    color:red;
+.active {
+  color: red;
 }
-.itemName{
-    font-size: 13px;
-    color: #333;
+.itemName {
+  font-size: 13px;
+  color: #333;
 }
-.morehigh{
-    font-size: 13px;
-    background-color: red;
-    color:#ccc;
+.morehigh {
+  font-size: 13px;
+  background-color: red;
+  color: #ccc;
 }
-.morelow{
-    font-size: 13px;
-    background-color: green;
-    color:#ccc;
+.morelow {
+  font-size: 13px;
+  background-color: green;
+  color: #ccc;
 }
-.hang{
-    text-align: center;
-    margin:26px;
-    color: #444;
-    font-size: 14px;
+.hang {
+  text-align: center;
+  margin: 26px;
+  color: #444;
+  font-size: 14px;
 }
 </style>

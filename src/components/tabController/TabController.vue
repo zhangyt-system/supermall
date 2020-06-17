@@ -1,10 +1,7 @@
 <template>
   <div class="tab">
-    <div v-for="(item,index) in tabArr" :key="index" class="tabItem" 
-    @click="tabItemClick(index)" 
-    :class="{active:currIndex==index}"
-    >
-      <div>{{item}}</div>
+    <div v-for="(item,index) in tabArr" :key="index" class="tabItem" @click="tabItemClick(index)">
+      <div :class="{itemactive:currIndex==index}">{{item}}</div>
     </div>
   </div>
 </template>
@@ -13,7 +10,6 @@
 export default {
   data() {
     return {
-      // isActive:true,
       currIndex: 0
     };
   },
@@ -23,12 +19,12 @@ export default {
       default: []
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
+    //动态的改变点击按钮的样式
     tabItemClick(index) {
       this.currIndex = index;
-      this.$emit('tabClick',index)
+      this.$emit("tabClick", index);
     }
   }
 };
@@ -46,9 +42,10 @@ export default {
 }
 .tabItem {
   flex: 1;
+  padding: 0 20px;
 }
-.active {
+.itemactive {
   color: #ff5777;
-  border-bottom:solid 3px #ff5777;
+  border-bottom: solid 3px #ff5777;
 }
 </style>

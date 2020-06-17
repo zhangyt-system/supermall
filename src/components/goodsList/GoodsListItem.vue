@@ -1,10 +1,10 @@
 <template>
   <div>
     <div @click="goodsItemClick">
-    <img :src="pic" @load="goodsItemLoadImage"/>
-    <p class="title">{{goodsItem.title}}</p>
-    <span>¥{{goodsItem.price}}</span>
-    <span>❤{{goodsItem.cfav}}</span>
+      <img :src="pic" @load="goodsItemLoadImage" />
+      <p class="title">{{goodsItem.title}}</p>
+      <span>¥{{goodsItem.price}}</span>
+      <span>❤{{goodsItem.cfav}}</span>
     </div>
   </div>
 </template>
@@ -14,41 +14,41 @@ export default {
   props: {
     goodsItem: Object
   },
-  methods:{
-    goodsItemLoadImage(){
-      this.$bus.$emit('goodsItemLoadImage')
+  methods: {
+    goodsItemLoadImage() {
+      this.$bus.$emit("goodsItemLoadImage");
     },
-    goodsItemClick(){
-      this.$router.push('/detail/'+this.goodsItem.iid)
+    goodsItemClick() {
+      this.$router.push("/detail/" + this.goodsItem.iid);
     }
   },
-  computed:{
-    pic(){
-      return this.goodsItem.img||this.goodsItem.image||this.goodsItem.show.img
+  computed: {
+    pic() {
+      return (
+        this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
+      );
     }
-  },
-
+  }
 };
 </script>
 
 <style scoped>
-
-img{
-  width: 150px;
+img {
+  width: 160px;
   margin-left: 6px;
+  border-radius: 6px;
 }
-.title{
-  width: 150px;
+.title {
+  width: 160px;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-left: 6px;
   overflow: hidden;
   font-size: 14px;
-
 }
-span{
+span {
   text-align: center;
-  margin-left:23px;
+  margin-left: 23px;
   font-size: 13px;
 }
 </style>

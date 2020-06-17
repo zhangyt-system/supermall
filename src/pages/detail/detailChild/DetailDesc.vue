@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" v-if="Object.keys(itemDesc).length !== 0">
     <!-- {{itemDesc}} -->
     <div class="title">{{itemDesc.itemInfo.title}}</div>
     <div class="totalPrice">
@@ -14,10 +14,10 @@
       <div v-for="(item,index) in itemDesc.columns" :key="index" class="sellDescItem">{{item}}</div>
     </div>
     <div class="otherDesc">
-    <div v-for="(item,inde) in itemDesc.shopInfo.services" :key="inde" class="otherDescItem">
-      <img :src="item.icon" />
-      {{item.name}}
-    </div>
+      <div v-for="(item,inde) in itemDesc.shopInfo.services" :key="inde" class="otherDescItem">
+        <img :src="item.icon" />
+        {{item.name}}
+      </div>
     </div>
   </div>
 </template>
@@ -66,17 +66,17 @@ export default {
 .sellDescItem {
   flex: 1;
 }
-.otherDesc{
-   display: flex;
+.otherDesc {
+  display: flex;
   /* justify-content: space-around; */
-  margin:18px 0;
+  margin: 18px 0;
   font-size: 10px;
   color: #333;
 }
-.otherDescItem{
-  flex:1
+.otherDescItem {
+  flex: 1;
 }
-img{
+img {
   height: 12px;
 }
 </style>

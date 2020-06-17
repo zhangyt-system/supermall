@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="Object.keys(detailParams).length !== 0">
     <!-- {{detailParams}} -->
     <div class="totalItem">
       <div v-for="(item,index) in detailParams.rule.tables[0]" :key="index" class="row">
@@ -7,12 +7,12 @@
       </div>
     </div>
     <div class="totalSet">
-    <div v-for="(item,inde) in detailParams.info.set" :key="inde" class="set">
-      <div class="setrow">
-        <span class="key">{{item.key}}</span>
-        <span class="value">{{item.value}}</span>
+      <div v-for="(item,inde) in detailParams.info.set" :key="inde" class="set">
+        <div class="setrow">
+          <span class="key">{{item.key}}</span>
+          <span class="value">{{item.value}}</span>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -39,11 +39,9 @@ export default {
   text-align: center;
   color: #555;
   font-size: 14px;
-
 }
-.totalSet{
-  width: 100%
-
+.totalSet {
+  width: 100%;
 }
 .set {
   margin-right: 1px;
@@ -51,14 +49,14 @@ export default {
   color: #555;
 }
 .setrow {
-    /* width: 100vh; */
-    height: 35px;
+  /* width: 100vh; */
+  height: 35px;
   /* margin: 1px; */
 }
 .key {
   margin-right: 39px;
   margin-left: 28px;
-  width:19px;
+  width: 19px;
 }
 .value {
   flex: 1;

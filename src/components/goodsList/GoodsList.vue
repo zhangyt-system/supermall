@@ -1,36 +1,38 @@
 <template>
   <div class="wrapper">
-      <div v-for="(item,index) in goodsList" :key="index" class="item">
-      <goodsListItem :goodsItem="item" ></goodsListItem>
-      </div>
+    <div v-for="(item,index) in goodsList" :key="index" class="item">
+      <goodsListItem :goodsItem="item"></goodsListItem>
+    </div>
   </div>
 </template>
 
 <script>
-import goodsListItem from './GoodsListItem'
+import goodsListItem from "./GoodsListItem";
 export default {
   props: {
-      goodsList:Array
+    goodsList: Array
   },
-  components:{
-      goodsListItem
+  components: {
+    goodsListItem
   },
-  mounted(){
-      console.log(this.goodsList)
+  mounted() {
+    console.log(this.goodsList);
   }
 };
 </script>
 
 <style scoped>
-.wrapper{
+.wrapper {
+  margin-top: 10px;
   display: flex;
-  /* flex-direction: row;
-  justify-content: space-around; */
+  /* flex-direction: row;*/
+  justify-content: space-around;
   flex-wrap: wrap;
-  width: 100%
+  width: 100%;
 }
-.item{
-  flex:1;
+.item {
+  /* flex:1; */
   /* width:38% */
+  border-radius: 12px;
 }
 </style>
