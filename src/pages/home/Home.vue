@@ -11,7 +11,9 @@
       ref="tab"
     ></TabController>
     <Scroll ref="scroll" @scroll="scroll" class="content" @pullingUp="pullingUp" :pullUpLoad="true">
-      <HomeSwiper :bannerImage="bannerImage">12313213</HomeSwiper>
+      <!-- 轮播图 -->
+      <HomeSwiper :bannerImage="bannerImage"></HomeSwiper>
+      <!-- 推荐 -->
       <HomeRecommend></HomeRecommend>
       <TabController ref="tabcontroll" :tabArr="tabArr" @tabClick="tabClick"></TabController>
       <GoodsList :goodsList="goodsList"></GoodsList>
@@ -67,12 +69,13 @@ export default {
     BackTop
   },
   mounted() {
-    this.$bus.$on("goodsItemLoadImage", () => {
-      //判断一下scroll不为空
-      if (scroll !== undefined) {
-        this.$refs.scroll.scroll.refresh();
-      }
-    });
+    // // if (scroll !== undefined) {
+    // this.$bus.$on("goodsItemLoadImage", () => {
+    //   //判断一下scroll不为空
+    //   this.$refs.scroll.scroll.refresh;
+    //   console.log(this.$refs.scroll.scroll);
+    // });
+    // }
     getHomeMuliteData().then(res => {
       this.banner = res.data.data.banner.list;
       console.log();

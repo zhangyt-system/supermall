@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DetailNav @click></DetailNav>
+    <DetailNav ref="base" @navClick="navClick"></DetailNav>
     <Scroll class="scroll" ref="scroll" @scroll="scroll">
       <!-- 轮播图 -->
       <DetailSwiper :topImages="topImages"></DetailSwiper>
@@ -13,7 +13,7 @@
       <!-- 详情页参数信息 -->
       <DetailParams :detailParams="detailParams" ref="params"></DetailParams>
       <!-- 用户评价 -->
-      <DetailRate :detailRate="detailRate" ref="rate"></DetailRate>
+      <DetailRate :detailRate="detailRate" ref="comment"></DetailRate>
       <!-- 推荐信息 -->
       <DetailRecommend :detailRecommend="detailRecommend" ref="recommend"></DetailRecommend>
     </Scroll>
@@ -47,7 +47,8 @@ export default {
       detailRate: {},
       detailRecommend: [],
       position: 0,
-      shop: {}
+      shop: {},
+      themeTops: [0, 1000, 2000, 3000]
     };
   },
   components: {
@@ -76,18 +77,12 @@ export default {
       return this.position > 1000;
     }
   },
-  updated() {
-    // 获取需要的四个offsetTop
-    this._getOffsetTops();
-  },
   methods: {
-    _getOffsetTops() {
-      this.themeTops = [];
-      this.themeTops.push(this.$refs.base.$el.offsetTop);
-      this.themeTops.push(this.$refs.param.$el.offsetTop);
-      this.themeTops.push(this.$refs.comment.$el.offsetTop);
-      this.themeTops.push(this.$refs.recommend.$el.offsetTop);
-      this.themeTops.push(Number.MAX_VALUE);
+    //跳转到相应的位置
+    navClick(index) {
+      console.log(index);
+      this.$refs.scroll.scroll.scrollTo(0, -this.themeTops[index], 100);
+      console.log(this.themeTops[index]);
     },
     getGoodsItemData(iid) {
       getGoodsItemData(iid).then(res => {
@@ -100,6 +95,16 @@ export default {
         this.detailRate = res.data.result.rate;
         this.shop = new Shop(res.data);
         console.log(res.data);
+        this.$nextTick(() => {
+          //在这里取数据，DOM渲染完了，但是里面有很多的图片，拿到的对应标题的数据不一定正确
+          this.themeTops = [];
+          this.themeTops.push(0);
+          this.themeTops.push(this.$refs.params.$el.offsetTop);
+          this.themeTops.push(this.$refs.comment.$el.offsetTop);
+          this.themeTops.push(this.$refs.recommend.$el.offsetTop);
+          this.themeTops.push(Number.MAX_VALUE);
+          console.log(this.themeTops);
+        });
       });
     },
     getRecommendData() {

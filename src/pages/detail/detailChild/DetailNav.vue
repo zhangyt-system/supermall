@@ -2,9 +2,13 @@
   <div>
     <NavBar class="navbar">
       <span class="iconfont" slot="left" @click="backClick">&#xe607;</span>
-      <span slot="center" v-for="(item,index) in navArr" :key="index" class="navItem"
-      @click="activeClick(index)"
-      :class="{active:index==currIndex}"
+      <span
+        slot="center"
+        v-for="(item,index) in navArr"
+        :key="index"
+        class="navItem"
+        @click="activeClick(index)"
+        :class="{active:index==currIndex}"
       >{{item}}</span>
     </NavBar>
   </div>
@@ -17,7 +21,7 @@ export default {
   data() {
     return {
       navArr: ["商品", "参数", "评论", "推荐"],
-      currIndex:0,
+      currIndex: 0
     };
   },
   components: {
@@ -27,8 +31,9 @@ export default {
     backClick() {
       this.$router.go(-1);
     },
-    activeClick(index){
-        this.currIndex=index
+    activeClick(index) {
+      this.currIndex = index;
+      this.$emit("navClick", index);
     }
   }
 };
@@ -44,7 +49,7 @@ export default {
 .navItem {
   margin: 8px;
 }
-.active{
-    color:#ff5777
+.active {
+  color: #ff5777;
 }
 </style>
