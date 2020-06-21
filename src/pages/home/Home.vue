@@ -69,13 +69,13 @@ export default {
     BackTop
   },
   mounted() {
-    // // if (scroll !== undefined) {
-    // this.$bus.$on("goodsItemLoadImage", () => {
-    //   //判断一下scroll不为空
-    //   this.$refs.scroll.scroll.refresh;
-    //   console.log(this.$refs.scroll.scroll);
-    // });
-    // }
+    // if (scroll !== undefined) {
+    this.$bus.$on("goodsItemLoadImage", () => {
+      //判断一下scroll不为空
+      this.$refs.scroll.scroll.refresh;
+      console.log(this.$refs.scroll.scroll);
+    });
+    // },
     getHomeMuliteData().then(res => {
       this.banner = res.data.data.banner.list;
       console.log();
